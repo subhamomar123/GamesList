@@ -9,14 +9,14 @@ const EditGame = () => {
     const [url, setUrl] = useState("");
     const [date, setDate] = useState("");
     const [id, setId] = useState("");
-    useEffect(() =>{
+    useEffect(() => {
         setName(localStorage.getItem("Name"));
         setAuthor(localStorage.getItem("Author"));
         setUrl(localStorage.getItem("Url"));
         setDate(localStorage.getItem("Date"));
         setId(localStorage.getItem("id"));
 
-    },[])
+    }, [])
     const handleUpdate = (e) => {
         e.preventDefault();
         const updatedGame = { "Name": name, "Author": author, "Url": url, Date: date };
@@ -42,24 +42,30 @@ const EditGame = () => {
     }
 
     return (
-        <div>
-            <h2>Edit Game</h2>
+        <div className='mt-5'>
+            <div className="container text-center pt-4 pb-4 bg-dark rounded mb-4">
+                <div className="row">
+                    <div className="col d-flex justify-content-center">
+                        <h2 className='text-white'>Edit Game</h2>
+                    </div>
+                </div>
+            </div>
             <form className='m-3'>
                 <div className="form-group mb-3">
                     <label>Name</label>
-                    <input type="text" className="form-control" placeholder="Please enter name of your game here" onChange={(e) => setName(e.target.value)} value={name}/>
+                    <input type="text" className="form-control" placeholder="Please enter name of your game here" onChange={(e) => setName(e.target.value)} value={name} />
                 </div>
                 <div className="form-group mb-3">
                     <label >Author</label>
-                    <input type="text" className="form-control" placeholder="Please enter name of your Author here" onChange={(e) => setAuthor(e.target.value)} value={author}/>
+                    <input type="text" className="form-control" placeholder="Please enter name of your Author here" onChange={(e) => setAuthor(e.target.value)} value={author} />
                 </div>
                 <div className="form-group mb-3">
                     <label>URL</label>
-                    <input type="url" className="form-control" placeholder="Please enter URL of your game here" onChange={(e) => setAuthor(e.target.value)} value={url}/>
+                    <input type="url" className="form-control" placeholder="Please enter URL of your game here" onChange={(e) => setAuthor(e.target.value)} value={url} />
                 </div>
                 <div className="form-group mb-3">
                     <label >Date</label>
-                    <input type="date" className="form-control" onChange={(e) => setDate(e.target.value)} value={date}/>
+                    <input type="date" className="form-control" onChange={(e) => setDate(e.target.value)} value={date} />
                 </div>
                 <button type="update" className="btn btn-primary" onClick={handleUpdate}>Update</button>
             </form>

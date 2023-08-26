@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
-
+import '../Css/Game.css'
 const GameList = () => {
     const [gameData, setGameData] = useState([]);
     const navigate = useNavigate();
@@ -45,19 +45,27 @@ const GameList = () => {
     }
 
     function setToLocalStorage(game) {
-        localStorage.setItem("id",game._id);
-        localStorage.setItem("Name",game.Name);
-        localStorage.setItem("Author",game.Author);
-        localStorage.setItem("Date",game.Date);
-        localStorage.setItem("Url",game.Url);
+        localStorage.setItem("id", game._id);
+        localStorage.setItem("Name", game.Name);
+        localStorage.setItem("Author", game.Author);
+        localStorage.setItem("Date", game.Date);
+        localStorage.setItem("Url", game.Url);
 
     }
     return (
-        <div>
-            <h2 className="d-flex justify-content-between">
-                Game Table
-                <button type="button" className="btn btn-secondary btn-sm" onClick={addGame}>Add Game</button>
-            </h2>
+        <div className='mt-5'>
+            <div className="container text-center pt-4 pb-4 bg-dark rounded mb-4">
+                <div className="row">
+                    <div className="col game-table">
+                        <h2 className='text-white'>Game Table</h2>
+                    </div>
+                    <div className="col d-flex justify-content-end">
+                        <button type="button" className="btn btn-secondary btn-sm" onClick={addGame}>
+                            Add Game
+                        </button>
+                    </div>
+                </div>
+            </div>
             <table className="table">
                 <thead>
                     <tr>

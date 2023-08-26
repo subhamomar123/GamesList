@@ -35,8 +35,14 @@ const EditGame = () => {
     }
 
     return (
-        <div>
-            <h2>Add Game</h2>
+        <div className='mt-5'>
+            <div className="container text-center pt-4 pb-4 bg-dark rounded mb-4">
+                <div className="row">
+                    <div className="col d-flex justify-content-center">
+                        <h2 className='text-white'>Add Game</h2>
+                    </div>
+                </div>
+            </div>
             <form className='m-3'>
                 <div className="form-group mb-3">
                     <label>Name</label>
