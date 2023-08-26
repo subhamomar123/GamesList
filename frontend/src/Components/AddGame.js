@@ -14,7 +14,7 @@ const EditGame = () => {
         e.preventDefault();
         const updatedGame = { "Name": name, "Author": author, "Url": url, Date: date };
         console.log(updatedGame)
-        fetch(`http://localhost:4000/games`, {
+        fetch(`${process.env.REACT_APP_BACKEND_URL}/games`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

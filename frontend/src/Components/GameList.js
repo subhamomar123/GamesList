@@ -7,7 +7,7 @@ const GameList = () => {
 
     async function fetchGames() {
         try {
-            const response = await fetch('http://localhost:4000/games');
+            const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/games`);
             if (response.ok) {
                 const data = await response.json();
                 // console.log(data)
@@ -25,7 +25,7 @@ const GameList = () => {
     }, []);
 
     function handleDelete(id) {
-        fetch(`http://localhost:4000/games/${id}`, {
+        fetch(`${process.env.REACT_APP_BACKEND_URL}/games/${id}`, {
             method: 'DELETE',
         })
             .then((response) => {
@@ -45,7 +45,6 @@ const GameList = () => {
     }
 
     function setToLocalStorage(game) {
-        console.log(game)
         localStorage.setItem("id",game._id);
         localStorage.setItem("Name",game.Name);
         localStorage.setItem("Author",game.Author);
