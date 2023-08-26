@@ -1,0 +1,8 @@
+# Ignore compiled files
+*.class
+*.jar
+
+# Ignore directories
+target/
+node_modules/
+.idea/
