@@ -1,6 +1,36 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
+/**
+ * @swagger
+ * components:
+ *   schemas:
+ *     Games:
+ *       type: object
+ *       required:
+ *         - Name
+ *         - Author
+ *         - Url
+ *         - Date
+ *       properties:
+ *         id:
+ *           type: string
+ *           description: The auto-generated id of the game
+ *         Name :
+ *           type: string
+ *           description: The title of your game
+ *         Author:
+ *           type: string
+ *           description: The game author
+ *         Url:
+ *           type: boolean
+ *           description: URL of the game
+ *         Date:
+ *           type: string
+ *           description: The creation date of game
+ *  
+ */
+
 const NewSchema = new Schema({
     Name: {
         type: String,
@@ -27,4 +57,4 @@ NewSchema.pre('save', function (next) {
     next();
 });
 
-module.exports = mongoose.model('games' , NewSchema);
+module.exports = mongoose.model('games', NewSchema);
