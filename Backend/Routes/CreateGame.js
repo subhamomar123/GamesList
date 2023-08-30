@@ -63,6 +63,11 @@ const Game = require('../Model/GameSchema');
 // POST: Create Single Game
 router.post('/games', async (req, res) => {
     try {
+
+        if (!req.body.Name || !req.body.Url || !req.body.Author) {
+            return res.status(400).json({ success: false, error: 'Required parameters are missing' });
+        }
+        
         const newGame = await Game.create({
             Name: req.body.Name,
             Url: req.body.Url,
